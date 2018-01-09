@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3001
-CMD [ "nodemon", "start" ]
+CMD [ "npm", "start" ]

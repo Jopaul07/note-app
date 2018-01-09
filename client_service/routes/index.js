@@ -3,8 +3,8 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-let user_service_url = "http://localhost:3001/";
-let note_service_url = "http://localhost:3002/";
+let user_service_url = "http://user_service:3001/";
+let note_service_url = "http://note_service:3002/";
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Client_service' });

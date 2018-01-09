@@ -28,7 +28,7 @@ app.use('/users', users);
 
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/user_service', { useMongoClient: true });
+mongoose.connect('mongodb://mongo/user_service', { useMongoClient: true });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

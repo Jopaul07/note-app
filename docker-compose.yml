@@ -1,0 +1,27 @@
+version:  '3'
+services:
+  client_service:
+    build: ./client_service
+    ports:
+      - "3000:3000"
+
+  user_service:
+    build: ./user_service
+    ports:
+      - "3001:3001"
+    links:
+      - mongo
+  
+  note_service:
+    build: ./notes_service
+    ports:
+      - "3002:3002"
+    links:
+      - mongo
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    volumes:
+      - /data/db:/data/db
