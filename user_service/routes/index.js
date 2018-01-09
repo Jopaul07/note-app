@@ -30,6 +30,9 @@ router.post('/signup', (req, res, next) => {
       return UserProfile.create({ firstName, lastName, address, owner: user._id });
     })
     .then((userProfile) => {
+      return User.updateOne({_id: userProfile.owner}, {profile: userProfile._id});
+    })
+    .then((user) => {
       return res.status(200).json({ response: "user successfully created!" });
     })
     .catch((err) => {

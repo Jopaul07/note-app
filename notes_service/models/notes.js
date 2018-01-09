@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 // create a schema
 
 var noteSchema = new Schema({
-    userid: { type: String, requied: true},
+    userId: { type: String, requied: true},
     userProfileId: { type: Number, requied: true},
     noteText: { type: String, required: true}
 });
