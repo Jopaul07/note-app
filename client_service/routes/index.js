@@ -20,7 +20,13 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-  request.post({ url: user_service_url + 'login', form: { email: req.body.email, password: req.body.password } }, (error, response, body) => {
+  let authHeader = req.header("Authorization");
+  request.post({
+    headers: {
+      Authorization: authHeader
+    }, 
+    url: user_service_url + 'login',
+  }, (error, response, body) => {
     if (error) {
       return res.status(500).json({ error }); // Print the error if one occurred
     }
