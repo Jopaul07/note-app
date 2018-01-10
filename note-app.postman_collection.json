@@ -1,0 +1,300 @@
+{
+	"info": {
+		"name": "note-app",
+		"_postman_id": "1bec436a-691e-66fb-9197-de105f5b709b",
+		"description": "This colloection contains user operations including signing up logging of user and note operations like adding a new note,viewing all notes of a user, updation and deletion of existing notes.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Nithin",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Joseph",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Kottayam",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "nithin@mail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nithpass",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "nithpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "nithin@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/notes/",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "nithpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "nithin@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "noteText",
+							"value": "Your new note is created.",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/notes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						""
+					]
+				},
+				"description": "Adding new note."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/notes/all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "nithpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "nithin@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/notes/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						"all"
+					]
+				},
+				"description": "Viewing all notes of a user."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/notes/",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "nithpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "nithin@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "noteText",
+							"value": "Updated note worked just fine.",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "noteId",
+							"value": "5a55e0bc83b3ea000f63ac13",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/notes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						""
+					]
+				},
+				"description": "Updating/Editing an existing note."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/notes/",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "nithpass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "nithin@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "noteId",
+							"value": "5a55e0bc83b3ea000f63ac13",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/notes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notes",
+						""
+					]
+				},
+				"description": "Deleting an existing note."
+			},
+			"response": []
+		}
+	]
+}
