@@ -28,13 +28,13 @@ $ docker-compose --version
 ```
 Up the server now.
 
-$ sudo docker-compose up --buid
+$ docker-compose up --build
 
 ```
 
 ### Signing up user:
 
-url: http://localhost:3000/signup 
+url: `http://localhost:3000/signup` 
 
 Request type: `POST` 
 
@@ -110,7 +110,9 @@ Body: `application/json`
  "noteId":"Database Id of note to be deleted"
 }
 ```
+## Postman collection
 
+You can use postman collection to import all the api calls. 
 
 ## Authors
 

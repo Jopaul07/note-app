@@ -10,15 +10,6 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Client_service' });
 });
 
-router.get('/login', (req, res, next) => {
-
-});
-
-
-router.get('/signup', (req, res, next) => {
-
-});
-
 router.post('/login', (req, res, next) => {
   let authHeader = req.header("Authorization");
   request.post({
