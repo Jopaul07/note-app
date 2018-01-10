@@ -26,9 +26,13 @@ $ docker-compose --version
 ### Running
 
 ```
+Build the docker image
+
+$ docker-compose build
+
 Up the server now.
 
-$ docker-compose up --build
+$ docker-compose up
 
 ```
 
