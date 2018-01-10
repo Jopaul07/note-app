@@ -210,19 +210,24 @@
 					]
 				},
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
 							"key": "noteText",
-							"value": "Updated note worked just fine.",
+							"value": "this is a new text",
 							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "noteId",
-							"value": "5a55e0bc83b3ea000f63ac13",
+							"value": "5a55f5267a15fb000f4e7902",
 							"description": "",
 							"type": "text"
 						}

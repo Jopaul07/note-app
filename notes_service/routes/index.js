@@ -1,4 +1,5 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var router = express.Router();
 var Note = require('../models/notes').Note;
 
@@ -19,7 +20,7 @@ router.get('/notes/all', (req, res, next) => {
 
 router.put('/notes', function (req, res, next) {
   let userId = req.body.userId;
-  let noteId = req.body.noteId;
+  let noteId = mongoose.Types.ObjectId(req.body.noteId);
   let noteText = req.body.noteText;
   Note
     .update({ _id:noteId, userId}, {noteText:noteText})
@@ -32,7 +33,7 @@ router.put('/notes', function (req, res, next) {
     });
 });
 router.delete('/notes', function (req, res, next) {
-  let noteId = req.body.noteId;
+  let noteId = mongoose.Types.ObjectId(req.body.noteId);
   let userId = req.body.userId;
   Note
   .remove({_id:noteId,userId})
@@ -50,10 +51,12 @@ router.post('/notes',
     let userId = req.body.userId;
     let userProfileId = req.body.userProfileId;
     let noteText = req.body.noteText;
+    console.log(userId, userProfileId);
     Note.create({
       userId,userProfileId,noteText
     })
     .then((note)=>{
+      console.log(note);
       return res.status(200).json({note });
     })
     .catch((err)=>{

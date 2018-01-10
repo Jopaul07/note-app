@@ -2,8 +2,6 @@
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
-// let tPromise = require('bluebird');
-// mongoose.Promise =tPromise;
 // create a schema
 var userSchema = new Schema({
     email: { type: String, requied: true, unique: true },

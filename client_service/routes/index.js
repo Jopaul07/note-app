@@ -55,7 +55,7 @@ router.get('/notes/all', (req, res, next) => {
     if (response.statusCode !== 200) {
       return res.status(response.statusCode).json({ error: "Error found" });
     }
-    let user = JSON.parse(body);
+    let user = JSON.parse(body).user;
     request.get({ url: note_service_url + 'notes/all', form: { userId: user._id } },
       (error, response, body) => {
         if (error) {
@@ -83,7 +83,8 @@ router.post('/notes', (req, res, next) => {
     if (response.statusCode !== 200) {
       return res.status(response.statusCode).json({ error: "Error found" });
     }
-    let user = JSON.parse(body);
+    let user = JSON.parse(body).user;
+    console.log(user);
     request.post({ url: note_service_url + 'notes', form: { userId: user._id, userProfileId: user.profile, noteText: req.body.noteText } },
       (error, response, body) => {
         if (error) {
@@ -115,7 +116,7 @@ router.put('/notes', (req, res, next) => {
     if (response.statusCode !== 200) {
       return res.status(response.statusCode).json({ error: "Error found" });
     }
-    let user = JSON.parse(body);
+    let user = JSON.parse(body).user;
     request.put({ url: note_service_url + 'notes', form: { userId: user._id, noteId: noteid, noteText: notetext } },
       (error, response, body) => {
         if (error) {
@@ -144,7 +145,7 @@ router.delete('/notes', (req, res, next) => {
     if (response.statusCode !== 200) {
       return res.status(response.statusCode).json({ error: "Error found" });
     }
-    let user = JSON.parse(body);
+    let user = JSON.parse(body).user;
     request.delete({ url: note_service_url + 'notes', form: { noteId: noteid, userId: user._id } }, (error, response, body) => {
       if (error) {
         return res.status(500).json({ error }); // Print the error if one occurred
