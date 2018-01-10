@@ -29,23 +29,93 @@ $ docker version
 
 $ docker-compose --version
 ```
-## Running
+### Running
+
 ```
 Up the server now.
 
 $ sudo docker-compose up --buid
+
 ```
 
+### Signing up user:
 
-##API calls
+url: http://localhost:3000/signup 
 
-Signing up user.
-[POST request]
+Request type: `POST` 
 
-http://localhost:3000/signup 
+Body: `application/json`
+```
+{
+ "email":"yourmail@mail.com",
+ "password":"yourpass",
+ "firstName":"fname",
+ "lastName":"lname", 
+ "address":"address"
+}
+```
+### Logging in:
 
-Body[{email:"yourmail@mail.com"},{password:"yourpass"},{
+url: `http://localhost:3000/login`
 
+Request type: `POST`
+
+Authorization: `Basic Auth` pass `Username : email` and `Password : password`
+
+Pass `Basic base64encode(username:password)` as the value of `Authorization` header.
+
+### View all Notes of the User concerned.
+
+url: `http://localhost:3000/notes/all`
+
+Request Type: `GET`
+
+Authorization: `Type : Basic Auth` and pass `Username : email` and `Password : password`
+
+### Add a new note.
+
+url: `http://localhost:3000/notes/`
+
+Request Type: `POST`
+
+Authorization: `Type : Basic Auth` and pass `Username : email` and `Password : password`
+
+Body: `application/json`
+```
+{
+ "noteText":"your note here"
+}
+```
+### Edit an existing note.
+
+url: `http://localhost:3000/notes/`
+
+Request Type: `PUT`
+
+Authorization: `Type : Basic Auth` and pass `Username : email` and `Password : password`
+
+Body: `application/json`
+```
+{
+ "noteText":"Your edited note here",
+ "noteId":"Database Id of note to be edited"
+}
+```
+### Delete an existing note.
+
+url: `http://localhost:3000/notes/`
+
+Request Type: `DELETE`
+
+Authorization: `Type : Basic Auth` and pass `Username : email` and `Password : password`
+
+
+Body: `application/json`
+```
+{
+ "noteId":"Database Id of note to be deleted"
+}
+```
 
 
 ## Authors
