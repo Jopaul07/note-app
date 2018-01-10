@@ -12,18 +12,12 @@ User_service [server-2] : Perform user authentication[Basic Auth] for each calls
  
 Note_service [server-3]: Performs notes operations[creation,modification,deletion and retrieval] . Returns the notes data in JSON format.
 
-Mongodb is used in storing details.
+Mongodb is used as database.
 
-
-## Getting Started
-
-Clone the project from Git-Hub.
-
-### git clone https://github.com/Jopaul07/note-app.git
 
 ### Prerequisites
 
-First Check the Docker Version installed on your device.
+ Check if Docker and Docker-compose is installed in your system.
 ```
 $ docker version
 
@@ -60,11 +54,11 @@ url: `http://localhost:3000/login`
 
 Request type: `POST`
 
-Authorization: `Basic Auth` pass `Username : email` and `Password : password`
+Authentication is done by `Basic auth`. 
 
-Pass `Basic base64encode(username:password)` as the value of `Authorization` header.
+##### Authorization header is to be passed to make authenticated requests.
 
-### View all Notes of the User concerned.
+### View all notes of the User.
 
 url: `http://localhost:3000/notes/all`
 
